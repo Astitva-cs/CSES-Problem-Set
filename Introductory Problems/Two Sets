@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+ 
+ 
+int main() {
+	
+	
+	long long n;cin>>n;
+	
+	long long sum=n*(n+1)/2;
+	
+	if(sum%2!=0)
+	{
+	    cout<<"NO"<<endl;
+	    
+	}
+	else
+	{
+	    sum/=2;
+	    long long x=0;
+	    long long j=0;
+	    
+	    while(x<sum)
+	    {   
+	        j++;
+	        x+=j;
+	    }
+	    if(sum==x)
+	    {
+	        cout<<"YES"<<endl;
+	        cout<<j<<endl;
+	        for(int i=1;i<=j;i++)
+	        {
+	            cout<<i<<" ";
+	        }
+	        cout<<endl<<n-j<<endl;
+	        j++;
+	        while(j<=n)
+	        {
+	            cout<<j<<" ";
+	            j++;
+	        }
+	    }
+	    else
+	    {
+	        long long extra=x-sum;
+	        cout<<"YES"<<endl;
+	       // cout<<j<<" okkkk"<<endl;
+	        
+	        cout<<j-1<<endl;
+	        
+	        for(int i=1;i<=j;i++)
+	        {
+	            if(i==extra)
+	            continue;
+	            else
+	            {
+	                cout<<i<<" ";
+	            }
+	        }
+	        cout<<endl<<n-j+1<<endl;
+	        j++;
+	        cout<<extra<<" ";
+	        while(j<=n)
+	        {
+	            cout<<j<<" ";
+	            j++;
+	        }
+	        
+	        
+	        cout<<endl;
+	    }
+	}
+	return 0;
+}
