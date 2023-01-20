@@ -1,0 +1,103 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+ 
+ 
+int main() {
+	
+ 
+ 
+string str;
+cin>>str;
+ 
+ 
+unordered_map<char,int> mp;
+ 
+for(int i=0;i<str.length();i++)
+{
+    mp[str[i]]++;
+    
+}
+ 
+ 
+int odcnt=0;
+ 
+for(auto x:mp)
+{
+    if(x.second%2!=0)
+    {
+        odcnt++;
+        
+    }
+}
+ 
+string fir="";
+string sec="";
+ 
+ 
+ 
+ 
+if(str.length()%2==0 &&odcnt==0)
+{
+    for(auto x:mp)
+    {
+        int cnt=x.second;
+        char c=x.first;
+        for(int i=0;i<cnt/2;i++)
+        {
+            fir+=c;
+            sec+=c;
+        }
+    }
+    
+    reverse(sec.begin(),sec.end());
+    cout<<fir<<sec<<endl;
+    
+    
+    return 0;
+    
+}
+if(str.length()%2!=0 &&odcnt==1)
+{
+  int odlength;
+  char odchar;
+ 
+ for(auto x:mp)
+    {
+        int cnt=x.second;
+        char c=x.first;
+        
+        if(cnt%2!=0)
+        {
+            odlength=cnt;
+            odchar=c;
+            continue;
+        }
+        for(int i=0;i<cnt/2;i++)
+        {
+            fir+=c;
+            sec+=c;
+        }
+    }
+ 
+ reverse(sec.begin(),sec.end());
+ cout<<fir;
+ 
+ for(int i=0;i<odlength;i++)
+ {
+     cout<<odchar;
+ }
+ 
+ cout<<sec<<endl;
+    
+    
+    return 0;
+    
+}
+ 
+cout<<"NO SOLUTION"<<endl;
+ 
+ 
+ 
+	return 0;
+}
